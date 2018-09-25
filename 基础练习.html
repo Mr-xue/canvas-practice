@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+        	/*如果使用 CSS 来设置宽高的话，画布就会按照 300 * 150 的比例进行缩放，也就是将 300 * 150 的页面显示在 400 * 400 的容器中。*/
+        	/* width: 400px;
+        	height: 400px; */
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" ></canvas>
+    <script>
+    	let canvas = document.querySelector('#canvas');
+    	let ctx = canvas.getContext('2d');
+    	canvas.width = 400;
+    	canvas.height = 400
+
+    	ctx.beginPath();
+    	// ctx.moveTo(100,100)
+    	ctx.arc(100,100,1,0,Math.PI*2,true);
+    	ctx.closePath();
+    	ctx.fillStyle = '#fff';
+    	ctx.fill();
+    </script>
+</body>
+</html>
