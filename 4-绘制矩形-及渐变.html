@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+        	
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" ></canvas>
+    <script>
+    	let canvas = document.querySelector('#canvas');
+    	let ctx = canvas.getContext('2d');
+    	canvas.width = 400;
+    	canvas.height = 400
+
+    	ctx.beginPath();
+
+        // 阴影
+        ctx.shadowBlur = 20;
+        ctx.shadowOffsetX = 3;
+        ctx.shadowOffsetY = 3;
+        ctx.shadowColor = '#fff';
+
+        // 渐变
+        let grd = ctx.createLinearGradient(10,10,10,110);
+
+        grd.addColorStop(0,'rgb(255, 0, 0)');
+        grd.addColorStop(0.2,'rgb(255, 165, 0)');
+        grd.addColorStop(0.3,'rgb(255, 255, 0)');
+        grd.addColorStop(0.5,'rgb(0, 255, 0)');
+        grd.addColorStop(0.7,'rgb(0, 127, 255)');
+        grd.addColorStop(0.9,'rgb(0, 0, 255)');
+        grd.addColorStop(1,'rgb(139, 0, 255)');
+
+        /*grd.addColorStop(0,'pink');
+        grd.addColorStop(1,'white');*/
+
+        // 矩形填充色
+        // ctx.fillStyle = '#fff';
+        ctx.fillStyle = grd;
+        ctx.fillRect(10, 10, 100, 100);
+
+        // 空心矩形
+        ctx.strokeStyle = '#fff';
+        ctx.strokeRect(130, 10, 100, 100);
+
+
+    </script>
+</body>
+</html>
