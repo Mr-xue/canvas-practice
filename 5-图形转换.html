@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+        	
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" ></canvas>
+    <script>
+    	let canvas = document.querySelector('#canvas');
+    	let ctx = canvas.getContext('2d');
+    	canvas.width = 400;
+    	canvas.height = 400
+        ctx.save(); //保存之前状态
+
+        // 旋转
+        ctx.fillStyle = 'white';
+        ctx.rotate(20*Math.PI/180)
+        ctx.fillRect(150,150,100,50)
+
+        ctx.restore(); //返回到save时的状态
+
+        // 放大
+        ctx.strokeStyle = '#fff';
+        ctx.strokeRect(5,5,50,20);
+
+        ctx.scale(2,2)
+        ctx.strokeRect(5,5,50,20);
+
+        ctx.scale(2,2)
+        ctx.strokeRect(5,5,50,20);
+
+       
+    </script>
+</body>
+</html>
